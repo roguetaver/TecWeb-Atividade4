@@ -29,7 +29,21 @@ public class adicionaNome extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+	     String em = request.getParameter("email");
+	     String nome = request.getParameter("nome");
+	     String course = request.getParameter("curso");
+
+		 response.setContentType("text/html");
+		 
+	      PrintWriter pw=response.getWriter();
+	      pw.write("<h2> Parabéns! Você está inscrito :) <h2> <br>");
+	      pw.write("<h3> Email: "+ em +" </h3>");
+	      pw.write("<h3> Nome: "+ nome +" </h3>");
+	      pw.write("<h3> Curso: "+ course +" </h3>");
+
 	}
 
 	/**
@@ -40,16 +54,7 @@ public class adicionaNome extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected void service (HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		
-		String nome = request.getParameter("nome");
-		
-		 PrintWriter out = response.getWriter();
-		 out.println("<html>");
-		 out.println("<body>");
-		 out.println("Nome: " + nome );
-		 out.println("</body>");
-		 out.println("</html>");
+	
 }
 
-}
+
